@@ -14,9 +14,9 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"},
         features = "src/test/resources/features",
-        glue = "com/cydeo/step_definitions",
+        glue = "com/crm/step_definitions",
         dryRun = false,
-        tags = "",
+        tags = "@REM-1325",
         publish = true
 
 
