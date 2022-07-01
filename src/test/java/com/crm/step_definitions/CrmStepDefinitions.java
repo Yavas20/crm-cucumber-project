@@ -7,7 +7,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.velocity.runtime.directive.Parse;
 import org.junit.Assert;
+import org.openqa.selenium.StaleElementReferenceException;
 
 public class CrmStepDefinitions {
 
@@ -81,13 +83,47 @@ public class CrmStepDefinitions {
     @Then("{string} errorPerson message is displayed")
     public void errorpersonMessageIsDisplayed(String message) {
 
-        Assert.assertTrue(homePage.errorMessage2.getText().contains(message));
+        Assert.assertTrue(homePage.errorMessage2.isDisplayed());
     }
 
     @And("user clicks the responsible person button")
     public void userClicksTheResponsiblePersonButton() {
 
         homePage.deleteIcon.click();
+
+    }
+
+    @And("user adds two responsible person")
+    public void userAddsTwoResponsiblePerson() {
+
+        homePage.addButton.click();
+        homePage.morePersonal.click();
+
+    }
+
+    @And("user adds three responsible person")
+    public void userAddsThreeResponsiblePerson() {
+        homePage.addButton.click();
+        homePage.morePersonal.click();
+        homePage.moreMorePersonal.click();
+
+    }
+
+    @Then("The task created can be seen on the count under MY TASKS table")
+    public void theTaskCreatedCanBeSeenOnTheCountUnderMYTASKSTable() {
+
+        int expectedTask = 66;
+
+        try{
+            int actualTask = Integer.parseInt(homePage.ongoingTest.getText());
+
+            System.out.println(actualTask);
+
+            Assert.assertEquals(expectedTask, actualTask);
+        } catch(StaleElementReferenceException e){
+            e.printStackTrace();
+        }
+
 
     }
 }

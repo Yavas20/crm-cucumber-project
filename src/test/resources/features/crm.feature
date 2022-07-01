@@ -30,5 +30,44 @@ Feature: Task functionality
     And user clicks on the send button
     Then  "A user specified in the field Responsible Person was not found." errorPerson message is displayed
 
+  @REM-1326
+  Scenario: User should be able to assign a task to more than one user (Test with adding 3 users max.)
+    When user clicks on the Task
+    And user enters a Task name
+    And user adds at least one responsible person
+    And user clicks on the send button
+    Then "Task has been created" pop-up message is displayed
+
+  @REM-1327
+  Scenario: User should be able to assign a task to more than one user (Test with adding 3 users max.)
+    When user clicks on the Task
+    And user enters a Task name
+    And user adds two responsible person
+    And user clicks on the send button
+    Then "Task has been created" pop-up message is displayed
+
+  @REM-1328
+  Scenario: User should be able to assign a task to more than one user (Test with adding 3 users max.)
+    When user clicks on the Task
+    And user enters a Task name
+    And user adds three responsible person
+    And user clicks on the send button
+    Then "Task has been created" pop-up message is displayed
+
+  @REM-1329
+  Scenario:  When task(s) is(are) created, they can be seen on the count on the homepage under "MY TASKS" table.
+    When user clicks on the Task
+    And user enters a Task name
+    And user adds at least one responsible person
+    And user clicks on the send button
+    Then The task created can be seen on the count under MY TASKS table
+
+
+
+
+
+
+
+
 
 

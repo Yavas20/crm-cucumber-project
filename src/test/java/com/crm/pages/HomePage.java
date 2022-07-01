@@ -29,7 +29,21 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "(//span[@title='Cancel selection'])[1]")
     public WebElement deleteIcon;
 
-    @FindBy(xpath = "(//div[@class='task-message-label error'])[2]")
+    @FindBy(xpath = "//div[@class='task-message-label error']")
     public WebElement errorMessage2;
+
+    @FindBy (partialLinkText = "Add more" )
+    public WebElement addButton;
+
+    @FindBy(xpath = "//div[.='Cristopher Debua']")
+    public WebElement morePersonal;
+
+    @FindBy(xpath = "//div[.='helpdesk22@cybertekschool.com']")
+    public WebElement moreMorePersonal;
+
+    @FindBy (xpath = "(//span[@class='task-item-index'])[1]")
+    public WebElement ongoingTest;
+
+
 
 }
